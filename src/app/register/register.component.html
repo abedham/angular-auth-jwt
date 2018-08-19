@@ -1,0 +1,51 @@
+<div id="registerForm">
+  <div class="container">
+    <h1 class="form-heading">Welcome to Angular Auth sample</h1>
+    <div class="login-form">
+      <div class="main-div">
+        <div class="panel">
+          <h2>Register</h2>
+          <p>Please enter your email and password</p>
+        </div>
+        <form id="Login" #f="ngForm" (ngSubmit)="submit()">
+
+          <div class="form-group">
+            <input type="name" class="form-control" id="inputName" placeholder="Name" name="name" [(ngModel)]="model.name" #name="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required minlength="4">
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="invalid-feedback">
+              <div *ngIf="name.errors.required">Name is required</div>
+              <div *ngIf="name.errors.minlength">Name must be at least 6 characters</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email Address" name="email" [(ngModel)]="model.email"
+              #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email>
+            <div *ngIf="email.invalid && (name.dirty||name.touched)" class="invalid-feedback">
+              <div *ngIf="email.errors.required">Email is required</div>
+              <div *ngIf="email.errors.email">Email must be a valid email address</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" [(ngModel)]="model.password"
+              #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="invalid-feedback">
+              <div *ngIf="password.errors.required">Password is required</div>
+              <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+
+          </div>
+          <div class="forgot">
+            <a [routerLink]="['/lgoin']">Login</a>
+          </div>
+          <div>{{msg}}</div>
+          <button [disabled]="f.invalid" type="submit" class="btn btn-primary">Register</button>
+
+        </form>
+      </div>
+      <p class="botto-text"> Designed by Sunil Rajput</p>
+    </div>
+  </div>
+</div>

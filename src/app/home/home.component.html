@@ -1,0 +1,6 @@
+<button class="btn btn-primary" (click)="logout()">logout</button>
+<div *ngFor="let user of users" class="row">
+  {{user._id}}<br> {{user.email}}
+  <br> {{user.name}}
+  <br>
+</div>
